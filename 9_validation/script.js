@@ -62,9 +62,10 @@ function validMessage(){
     messageError.innerHTML = "valid" ;
     return true;
 }
-function submit(){
+function submit(e){
+    e.preventDefault();
     if(!validateName() || !validEmail() || !validPhone() || !validMessage()){
-        submitError.tyle.display='block' ;
+        submitError.style.display='block' ;
         submitError.innerHTML='Fix this error';
         setTimeout(function(){submitError.tyle.display='none'} , 3000) ;
         return false;
@@ -73,3 +74,4 @@ function submit(){
     // submitError.innerHTML="submit"
     // return true;
 }
+document.getElementById("submit-btn").addEventListener("click",submit) ;
